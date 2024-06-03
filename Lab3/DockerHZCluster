@@ -1,0 +1,8 @@
+# MANAGEMENT-CENTER
+docker run --name Management-Center --network hazelcast-network -p 8080:8080 hazelcast/management-center:latest-snapshot
+
+# MEMBERS
+docker run -it --name 5701-member --network hazelcast-network --rm -e HZ_NETWORK_PUBLICADDRESS=192.168.1.113:5701 -e HZ_CLUSTERNAME=ps_cluster -p 5701:5701 hazelcast/hazelcast:5.4.0
+docker run -it --name 5702-member --network hazelcast-network --rm -e HZ_NETWORK_PUBLICADDRESS=192.168.1.113:5702 -e HZ_CLUSTERNAME=ps_cluster -p 5702:5701 hazelcast/hazelcast:5.4.0
+docker run -it --name 5703-member --network hazelcast-network --rm -e HZ_NETWORK_PUBLICADDRESS=192.168.1.113:5703 -e HZ_CLUSTERNAME=ps_cluster -p 5703:5701 hazelcast/hazelcast:5.4.0
+
